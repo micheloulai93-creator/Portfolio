@@ -5,7 +5,7 @@
   font-family: 'Poppins', 'Montserrat', sans-serif; // Police moderne et grasse
   font-size: 1.6rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff; // Blanc par défaut (pour le thème sombre)
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
 
   // L'icône de développeur
   i {
-    color: #00d2ff; // Bleu électrique (tu peux mettre #a855f7 pour du violet)
+    color: #00d2ff; // Bleu électrique
     font-size: 1.4rem;
   }
 
@@ -66,3 +66,13 @@
 
 // Thème clair : icône sombre (l'attribut est posé sur <html> par ThemeService)
 :host-context([data-theme='light']) .theme-toggle { color: #212529; }
+
+
+/* =========================================
+   AJOUT : CORRECTION DU LOGO EN MODE CLAIR
+   ========================================= */
+:host-context([data-theme='light']) {
+  .logo-shakya {
+    color: #212529; // Le texte "MICHEL" devient gris foncé pour être visible sur fond blanc
+  }
+}
