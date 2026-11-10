@@ -1,25 +1,42 @@
 /* =========================================
-   STYLE DU LOGO (MichelOulai.dev)
+   STYLE DU LOGO (Style Shakya_Dev)
    ========================================= */
-.logo-dev {
-  font-family: 'Inter', 'Poppins', sans-serif;
+.logo-shakya {
+  font-family: 'Poppins', 'Montserrat', sans-serif; // Police moderne et grasse
   font-size: 1.6rem;
   font-weight: 800;
-  color: #ffffff; /* Blanc par défaut */
+  color: #ffffff;
   text-decoration: none;
-  letter-spacing: -1px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 10px; // Espace entre l'icône et le texte
+  letter-spacing: 0.5px;
+  text-transform: uppercase; // Force les majuscules pour "MICHEL"
 
-  span {
-    color: #a855f7; /* Couleur violette pour "Oulai" */
+  // L'icône de développeur
+  i {
+    color: #00d2ff; // Bleu électrique (tu peux mettre #a855f7 pour du violet)
+    font-size: 1.4rem;
   }
 
-  .dot {
-    color: #ffffff; /* Le point reste blanc */
+  // La partie "_Oulai" en couleur
+  span {
+    color: #00d2ff; // Même couleur que l'icône
+    text-transform: none; // Garde la majuscule à Oulai
+    font-weight: 800;
   }
 
   &:hover {
-    opacity: 0.8; /* Petit effet au survol */
+    opacity: 0.85;
+  }
+}
+
+// Adaptation pour mobile (pour que ça ne dépasse pas)
+@media (max-width: 575px) {
+  .logo-shakya {
+    font-size: 1.2rem;
+    gap: 6px;
+    i { font-size: 1.1rem; }
   }
 }
 
