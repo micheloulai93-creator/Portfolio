@@ -1,0 +1,71 @@
+// L'accueil s'adapte à la hauteur de l'écran (téléphone en paysage, petits écrans…)
+section.home {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 100px 0 120px;
+}
+
+section.home h1 { font-size: clamp(2.1rem, 8.5vw, 4rem); }
+p.welcome_text { font-size: clamp(1rem, 3.6vw, 1.25rem); }
+
+@media (max-width: 575px) {
+  p.welcome_text { min-height: 2.8em; }
+  .hero-tagline { font-size: 1rem; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+
+    .btn { width: 100%; max-width: 280px; }
+  }
+}
+
+// On masque « Défiler » quand il risquerait de recouvrir le contenu
+@media (max-width: 767px), (max-height: 720px) {
+  .scroll-down { display: none; }
+}
+
+.hero-tagline {
+  max-width: 640px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid rgba(127, 127, 127, 0.4);
+  border-radius: 999px;
+  font-size: 0.9rem;
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulse 2s infinite;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+@keyframes pulse {
+  70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+// Très grands écrans : on agrandit un peu le texte de l'accueil
+@media (min-width: 1600px) {
+  section.home h1 { font-size: 5.5rem; }
+  p.welcome_text { font-size: 1.6rem; }
+  .hero-tagline { font-size: 1.4rem; max-width: 820px; }
+}

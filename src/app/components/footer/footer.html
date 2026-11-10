@@ -1,0 +1,29 @@
+<footer class="horizontal-footer shadow-footer">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-12">
+        <div class="text-center">
+          <ul class="social-icons list-inline mt-5">
+            @for (s of socials; track s.name) {
+              <li class="list-inline-item">
+                <a [href]="s.url" target="_blank" rel="noopener noreferrer"
+                   [attr.aria-label]="s.name">
+                  <i [class]="s.icon"></i>
+                </a>
+              </li>
+            }
+          </ul>
+          <p class="copyright-text mt-3 mb-5">
+            &copy; {{ year }} Michel Oulai. Tous droits réservés.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!--To Top Link START-->
+<a href="#" class="toTop" id="return-to-top">
+  <i class="fas fa-chevron-up"></i>
+</a>
+<!--To Top Link END-->

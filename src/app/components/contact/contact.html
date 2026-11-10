@@ -1,0 +1,88 @@
+<!--CONTACT SECTION START-->
+<section class="contact" id="contact">
+  <div class="container d-flex flex-column justify-content-between h-100">
+
+    <div class="section-title flex-grow-1">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <h2 data-aos="heading-show" class="rect_heading">Contactez-moi</h2>
+            <p class="m-0">Une question, un projet ? Écrivez-moi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-content flex-grow-1">
+      <div class="row">
+        @for (i of infos; track i.title) {
+          <div class="col-sm-4">
+            <div class="d-flex flex-row flex-sm-column flex-md-row justify-content-md-center mb-3 text-left text-sm-center text-md-left">
+              <div class="contact-icon mr-md-3 mr-3 mr-sm-0">
+                <span [class]="i.icon"></span>
+              </div>
+              <div class="contact-details mt-2">
+                <h5>{{ i.title }}</h5>
+                @if (i.href) {
+                  <p><a [href]="i.href">{{ i.text }}</a></p>
+                } @else {
+                  <p>{{ i.text }}</p>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <form (submit)="send($event)">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+                   style="position:absolute;left:-9999px;opacity:0">
+            <div class="row">
+              <div class="col-lg-6 mt-3">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" autocomplete="name" required>
+                  <label>Nom complet</label>
+                </div>
+              </div>
+              <div class="col-lg-6 mt-3">
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" autocomplete="email" required>
+                  <label>E-mail</label>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-3">
+                <div class="form-group">
+                  <input type="text" name="subject" class="form-control" autocomplete="off" required>
+                  <label>Objet</label>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-3">
+                <div class="form-group">
+                  <textarea name="message" rows="6" class="form-control" required></textarea>
+                  <label>Message</label>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-3">
+                <div class="form-group mb-0 d-flex flex-wrap align-items-center justify-content-end">
+                  <p class="form-status mr-3 mb-0" role="status" aria-live="polite">
+                    @switch (status()) {
+                      @case ('success') { <span class="ok">✔ Message envoyé, merci ! Je vous réponds rapidement.</span> }
+                      @case ('error') { <span class="ko">Échec de l'envoi. Écrivez-moi directement à {{ email }}.</span> }
+                    }
+                  </p>
+                  <button type="submit" class="btn btn-outline-primary btn-bg" [disabled]="status() === 'sending'">
+                    {{ status() === 'sending' ? 'Envoi en cours…' : 'Envoyer le message' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!--CONTACT SECTION END-->

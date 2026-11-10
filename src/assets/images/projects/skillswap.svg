@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e1b4b"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- cartes en arrière-plan -->
+  <rect x="470" y="72" width="170" height="270" rx="18" fill="#312e81" opacity=".55" transform="rotate(10 555 207)"/>
+  <rect x="160" y="72" width="170" height="270" rx="18" fill="#312e81" opacity=".55" transform="rotate(-10 245 207)"/>
+  <!-- téléphone -->
+  <rect x="300" y="40" width="200" height="330" rx="26" fill="#0b1220" stroke="#e2e8f0" stroke-width="3"/>
+  <rect x="318" y="70" width="164" height="230" rx="16" fill="url(#card)"/>
+  <circle cx="400" cy="140" r="34" fill="#fff" opacity=".9"/>
+  <circle cx="400" cy="130" r="12" fill="#1e1b4b"/>
+  <path d="M378 160 Q400 138 422 160 Z" fill="#1e1b4b"/>
+  <rect x="340" y="196" width="56" height="22" rx="11" fill="#fff" opacity=".9"/>
+  <rect x="404" y="196" width="56" height="22" rx="11" fill="#fff" opacity=".9"/>
+  <rect x="352" y="228" width="96" height="22" rx="11" fill="#fff" opacity=".9"/>
+  <rect x="340" y="266" width="120" height="8" rx="4" fill="#fff" opacity=".6"/>
+  <!-- boutons refuser / intérêt -->
+  <circle cx="358" cy="334" r="22" fill="#0b1220" stroke="#f87171" stroke-width="3"/>
+  <path d="M349 325 L367 343 M367 325 L349 343" stroke="#f87171" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="442" cy="334" r="22" fill="#0b1220" stroke="#34d399" stroke-width="3"/>
+  <path d="M442 345 C428 335 428 324 435 324 C439 324 442 327 442 330 C442 327 445 324 449 324 C456 324 456 335 442 345 Z" fill="#34d399"/>
+  <text x="400" y="435" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#fff" text-anchor="middle">SkillSwap</text>
+  <text x="400" y="468" font-family="Arial, sans-serif" font-size="18" fill="#cbd5e1" text-anchor="middle">Flutter · matching par compétences</text>
+</svg>

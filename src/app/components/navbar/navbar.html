@@ -1,0 +1,51 @@
+<!--HEADER START-->
+    <header class="navigation horizontal_header transparentOnScroll navbar navbar-expand-lg fixed-top">
+        <div class="header-ins">
+        <div class="container">
+                <!--LOGO AREA-->
+                <div class="site-logo">
+                    <a href="#" class="hoveroff" title="">
+                        <!--<img src="" alt="">-->
+                        Michel Oulaï<span></span>
+                    </a>
+                </div>
+                <button class="button-toggler navbar-toggler collapsed" type="button" data-target="#navigation" data-toggle="collapse" aria-controls="navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!--Main Navigation START-->
+                <ul class="justify-content-end scrollspy collapse navbar-collapse" id="navigation">
+                    <li>
+                        <a href="#home" class="nav-link">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link">À propos</a>
+                    </li>
+                    <li>
+                        <a href="#service" class="nav-link">Compétences</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="nav-link">Projets</a>
+                    </li>
+                    <li>
+                        <a href="#resume" class="nav-link">Parcours</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="theme-item">
+                        <button type="button" class="theme-toggle" (click)="theme.toggle()"
+                                [attr.aria-label]="theme.theme() === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'"
+                                [title]="theme.theme() === 'dark' ? 'Mode clair' : 'Mode sombre'">
+                            <i [class]="theme.theme() === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                        </button>
+                    </li>
+                </ul>
+                <!--Main Navigation END-->
+            
+        </div>
+        </div>
+
+    </header>
+    <!--HEADER END-->

@@ -1,0 +1,127 @@
+<!--PORTFOLIO SECTION START-->
+<section class="portfolio" id="portfolio">
+  <div class="container d-flex flex-column justify-content-between h-100">
+
+    <div class="section-title flex-grow-1">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <h2 data-aos="heading-show" class="rect_heading">Mes projets</h2>
+            <p class="m-0">Quelques réalisations récentes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-content flex-grow-1">
+      <div class="row portfolio-items">
+        @for (p of projects; track p.title) {
+          <div class="col-xl-4 col-lg-4 col-md-6 mb-2 mt-4">
+            <article class="project-card">
+              <button type="button" class="project-media" [class.static]="!isClickable(p)" (click)="open(p)"
+                      [attr.aria-label]="p.images.length > 1 ? 'Voir les captures de ' + p.title : 'Ouvrir ' + p.title">
+                <!-- On affiche la première image (images[0]) sur la carte -->
+                <img [src]="p.images[0]" width="800" height="500" loading="lazy" [alt]="p.title">
+                @if (p.images.length > 1) {
+                  <span class="project-count"><i class="far fa-images"></i> {{ p.images.length }}</span>
+                }
+              </button>
+
+              <div class="project-body">
+                <h3>{{ p.title }}</h3>
+                <p class="project-category">{{ p.category }}</p>
+                <p class="project-impact">{{ p.impact }}</p>
+                @if (p.role) {
+                  <p class="project-role"><strong>Mon rôle :</strong> {{ p.role }}</p>
+                }
+
+                @if (p.tech.length) {
+                  <ul class="project-tags">
+                    @for (t of p.tech; track t) {
+                      <li>{{ t }}</li>
+                    }
+                  </ul>
+                }
+
+                <div class="project-actions">
+                  @if (p.images.length > 1) {
+                    <button type="button" class="btn btn-outline-primary btn-small" (click)="open(p)">
+                      <i class="far fa-images"></i> Captures
+                    </button>
+                  }
+                  @if (p.demoUrl) {
+                    <a [href]="p.demoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-small">
+                      <i class="fas fa-external-link-alt"></i> Démo
+                    </a>
+                  }
+                  @if (p.codeUrl) {
+                    <a [href]="p.codeUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-small">
+                      <i class="fab fa-github"></i> Code
+                    </a>
+                  }
+                </div>
+              </div>
+            </article>
+          </div>
+        }
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-center mt-5">
+          <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+            <span><i class="fab fa-github"></i></span> Voir plus sur GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--PORTFOLIO SECTION END-->
+
+<!--PROJECT Section START-->
+<div class="section project backgound-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row box p-5 mx-3 mx-md-0 align-items-center text-center">
+          <div class="col-md-4 m-0 mb-3 mb-md-0">
+            <h3 class="m-0">Un projet en tête ?</h3>
+          </div>
+          <div class="col-md-4 m-0 mb-3 mb-md-0">
+            <p class="m-0">Construisons-le ensemble.</p>
+          </div>
+          <div class="col-md-4">
+            <a href="#contact" class="btn btn-outline-primary">Me contacter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--PROJECT Section END-->
+
+<!--GALERIE (LIGHTBOX)-->
+@if (openProject(); as project) {
+  <div class="lightbox" (click)="close()" role="dialog" aria-modal="true" [attr.aria-label]="project.title">
+    <button type="button" class="lb-close" (click)="close()" aria-label="Fermer">&times;</button>
+
+    @if (project.images.length > 1) {
+      <button type="button" class="lb-nav lb-prev" (click)="prev(); $event.stopPropagation()" aria-label="Image précédente">&#10094;</button>
+      <button type="button" class="lb-nav lb-next" (click)="next(); $event.stopPropagation()" aria-label="Image suivante">&#10095;</button>
+    }
+
+    <figure class="lb-figure" (click)="$event.stopPropagation()">
+      <img [src]="project.images[index()]" [alt]="project.title + ' - image ' + (index() + 1)">
+      <figcaption>{{ project.title }} · {{ index() + 1 }} / {{ project.images.length }}</figcaption>
+    </figure>
+
+    @if (project.images.length > 1) {
+      <div class="lb-thumbs" (click)="$event.stopPropagation()">
+        @for (img of project.images; track img; let i = $index) {
+          <img [src]="img" loading="lazy" [alt]="'Miniature ' + (i + 1)"
+               [class.active]="i === index()" (click)="index.set(i)">
+        }
+      </div>
+    }
+  </div>
+}

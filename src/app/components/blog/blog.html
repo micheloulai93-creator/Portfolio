@@ -1,0 +1,61 @@
+<!--BLOG SECTION START-->
+<section class="blog" id="blog">
+  <div class="container d-flex flex-column justify-content-between h-100">
+    <div class="section-title flex-grow-1">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <h2 data-aos="heading-show" class="rect_heading">Mes articles</h2>
+            <p class="m-0">Retours d'expérience et notes d'apprentissage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-content flex-grow-1">
+      <div class="row">
+        @for (a of articles; track a.title) {
+          <div class="col-lg-4 col-md-12">
+            <div class="news-item mb-5 mb-lg-0">
+              <div class="news-cover">
+                @if (a.cover) {
+                  <img src="a.cover" width="800" height="530" loading="lazy"
+                       [alt]="a.title" class="img-fluid">
+                } @else {
+                  <div class="cover-placeholder">
+                    <span>{{ a.tag }}</span>
+                  </div>
+                }
+              </div>
+              <div class="news-content p-4">
+                <div class="news-title mb-3">
+                  <h3>{{ a.title }}</h3>
+                </div>
+                <p class="mb-3">{{ a.excerpt }}</p>
+                <div class="news-meta d-flex flex-row mb-4">
+                  <div class="news-meta-single mr-3">
+                    <span class="mbri-calendar"></span>
+                    <span class="meta-value">{{ a.date }}</span>
+                  </div>
+                  <div class="news-meta-single">
+                    <span class="mbri-user"></span>
+                    <span class="meta-value">par {{ author }}</span>
+                  </div>
+                </div>
+                <div class="readMore">
+                  @if (a.url) {
+                    <a [href]="a.url" target="_blank" rel="noopener noreferrer"
+                       class="btn btn-outline-primary">Lire la suite</a>
+                  } @else {
+                    <span class="btn btn-outline-primary disabled">Bientôt disponible</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<!--BLOG SECTION END-->

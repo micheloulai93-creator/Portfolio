@@ -1,0 +1,23 @@
+<!--FACTS SECTION START-->
+<div class="section facts backgound-section" data-aos-id="facts">
+  <div class="container">
+    <div class="row">
+      @for (fact of facts; track fact.label) {
+        <div class="col-lg-3 col-sm-6 mt-3 mt-lg-0">
+          <div class="fact-single text-center">
+            <div class="fact-icon">
+              <span [class]="fact.icon"></span>
+            </div>
+            <div class="fact-info">
+              <span class="tmcounter" data-from="0" [attr.data-to]="fact.value" data-speed="1500">{{ fact.value }}</span>@if (fact.plus) {+}
+            </div>
+            <div class="fact-meta">
+              <span>{{ fact.label }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+<!--FACTS SECTION END-->

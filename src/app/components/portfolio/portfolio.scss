@@ -1,0 +1,190 @@
+// Cartes projet
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(127, 127, 127, 0.28);
+  background: rgba(127, 127, 127, 0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+.project-media {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img { transform: scale(1.04); }
+
+  &.static { cursor: default; &:hover img { transform: none; } }
+}
+
+.project-count {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+
+  h3 { margin: 0 0 4px; }
+}
+
+.project-category { opacity: 0.7; font-size: 0.9rem; margin-bottom: 10px; }
+.project-impact { font-size: 0.95rem; line-height: 1.55; }
+.project-role { font-size: 0.9rem; line-height: 1.5; opacity: 0.85; flex: 1; margin-top: 6px; }
+.project-impact:last-of-type { flex: 1; }
+
+.project-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 8px 0 14px;
+
+  li {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(127, 127, 127, 0.2);
+    font-size: 0.8rem;
+  }
+}
+
+.project-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+// Galerie plein écran
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lb-figure {
+  margin: 0;
+  max-width: 90vw;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 68vh;
+    border-radius: 6px;
+  }
+
+  figcaption {
+    color: #fff;
+    margin-top: 12px;
+  }
+}
+
+.lb-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 44px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.lb-prev { left: 24px; }
+.lb-next { right: 24px; }
+
+.lb-thumbs {
+  display: flex;
+  gap: 8px;
+  max-width: 90vw;
+  margin-top: 16px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+
+  img {
+    height: 56px;
+    width: auto;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &.active {
+      opacity: 1;
+      border-color: #fff;
+    }
+  }
+}
+
+// Galerie : flèches au-dessus de l'image et adaptation aux petits écrans
+.lb-nav { z-index: 2; background: rgba(0, 0, 0, 0.5); }
+.lb-close { z-index: 3; }
+
+@media (max-width: 575px) {
+  .lightbox { padding: 12px; }
+  .lb-nav { width: 40px; height: 40px; font-size: 16px; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+  .lb-close { top: 8px; right: 12px; }
+}
+
+// Téléphone en paysage : on libère de la hauteur
+@media (max-height: 500px) {
+  .lightbox { padding: 8px; }
+  .lb-thumbs { display: none; }
+  .lb-figure img { max-height: calc(100vh - 80px); }
+  .lb-figure figcaption { margin-top: 6px; }
+  .lb-close { font-size: 34px; top: 6px; right: 14px; }
+}

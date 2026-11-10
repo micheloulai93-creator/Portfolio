@@ -1,0 +1,13 @@
+// Couverture de remplacement quand l'article n'a pas d'image
+.cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 800 / 530;
+  padding: 1rem;
+  background: linear-gradient(135deg, #1f3a5f, #2b7bb9);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
