@@ -1,3 +1,31 @@
+/* =========================================
+   STYLE DU LOGO (MichelOulai.dev)
+   ========================================= */
+.logo-dev {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff; /* Blanc par défaut */
+  text-decoration: none;
+  letter-spacing: -1px;
+  display: inline-block;
+
+  span {
+    color: #a855f7; /* Couleur violette pour "Oulai" */
+  }
+
+  .dot {
+    color: #ffffff; /* Le point reste blanc */
+  }
+
+  &:hover {
+    opacity: 0.8; /* Petit effet au survol */
+  }
+}
+
+/* =========================================
+   TON CODE EXISTANT POUR LE THÈME
+   ========================================= */
 .theme-toggle {
   background: transparent;
   border: 1px solid currentColor;
